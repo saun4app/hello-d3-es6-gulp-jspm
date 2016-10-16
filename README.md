@@ -4,7 +4,7 @@
 - `d3.js` (v4)
 - `es6` (`ES2015`)
 - `jspm.js`
-- `gulp` (**without** `jspm.config.js`)
+- `gulp`
 - `w3css`
 
 #### Example
