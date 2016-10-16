@@ -1,0 +1,52 @@
+{
+  "name": "hello-d3-es6-gulp-jspm",
+  "version": "1.0.0",
+  "description": "hello-d3-es6-gulp-jspm",
+  "main": "main.js",
+  "scripts": {
+    "build": "gulp build",
+    "release": "gulp ugly",
+    "start": "http-server ./build -p 3020 --cors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saun4app/hello-d3-es6-gulp-jspm.git"
+  },
+  "author": "Saun Shewanown <saun4app@gmail.com>",
+  "license": "ISC",
+  "keywords": [
+    "d3",
+    "v4",
+    "es6",
+    "ES2015",
+    "jspm.js",
+    "gulp",
+    "hello",
+    "w3css"
+  ],
+  "bugs": {
+    "url": "https://github.com/saun4app/hello-d3-es6-gulp-jspm/issues"
+  },
+  "homepage": "https://github.com/saun4app/hello-d3-es6-gulp-jspm#readme",
+  "jspm": {
+    "dependencies": {
+      "d3": "npm:d3@^4.2.7"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-sequence": "latest",
+    "gulp-shell": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-uglify": "latest",
+    "http-server": "latest",
+    "jspm": "latest"
+  },
+  "dependencies": {}
+}
