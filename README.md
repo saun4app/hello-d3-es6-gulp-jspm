@@ -8,7 +8,7 @@
 - `w3css`
 
 #### Example
-<a href="https://saun4app.github.io/hello-d3-es6-jspm" target="_blank">
+<a href="https://saun4app.github.io/hello-d3-es6-gulp-jspm" target="_blank">
     <img src="https://raw.github.com/saun4app/hello-d3-es6-gulp-jspm/master/demo-screen.png"
          alt="Demo screen"/>
 </a>
@@ -45,7 +45,7 @@ or
 $ http-server ./build -p 3020
 ```
 View the page on `http://localhost:3020/`
-<a href="https://saun4app.github.io/hello-d3-es6-jspm" target="_blank">
+<a href="https://saun4app.github.io/hello-d3-es6-gulp-jspm" target="_blank">
     <img src="https://raw.github.com/saun4app/hello-d3-es6-gulp-jspm/master/demo-screen.png"
          alt="Demo screen"/>
 </a>
