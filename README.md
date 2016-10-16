@@ -18,6 +18,7 @@
 $ git clone git@github.com:saun4app/hello-d3-es6-gulp-jspm.git demo-app
 $ cd demo-app/
 $ npm install
+$ jspm install
 ```
 
 ##### Build
@@ -61,5 +62,4 @@ View the page on `http://localhost:3020/`
 - https://60devs.com/optimizing--default-jspm-workflow-with-gulp-and-nginx.html
 - https://github.com/jspm/registry/issues/431
 - http://stackoverflow.com/questions/34444641/jspm-bundle-code-in-subdirectory-that-is-served-as-root
-- https://github.com/53seven/d3-svg
 - http://www.w3schools.com/w3css
