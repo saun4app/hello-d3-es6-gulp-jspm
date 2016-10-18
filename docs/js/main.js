@@ -15745,67 +15745,52 @@ $__System.register('17', ['5', '6', '16'], function (_export) {
 
                     _classCallCheck(this, D3TextList);
 
-                    this.set_value(param_obj);
+                    this._init_param(param_obj);
 
                     return this;
                 }
 
                 _createClass(D3TextList, [{
-                    key: 'append_item',
-                    value: function append_item() {
+                    key: 'show_list',
+                    value: function show_list() {
                         var param_obj = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
                         var self = this;
 
-                        try {
-                            this.set_value(param_obj);
+                        this._init_param(param_obj);
 
-                            var el_item = this.el_list.append('li').attr('class', self.el_item_class).text(self.el_item_text);
+                        var container_id = '#' + this.el_container_id;
+                        d3.select(container_id).selectAll('*').remove();
 
-                            this._set_el_list_event();
-                        } catch (error) {
-                            console.error('D3TextList::append_text() ' + error);
-                        }
+                        this.list_obj = d3.select(container_id).append('ul');
 
-                        return this;
+                        this.list_obj.attr('class', self.el_list_class).selectAll('li').data(self.item_array).enter().append('li').each(function (d) {
+                            d3.select(this).attr('class', d.item_class);
+                            d3.select(this).text(d.label);
+                        });
+
+                        this._set_event();
                     }
                 }, {
-                    key: 'set_value',
-                    value: function set_value() {
-                        var param_obj = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-                        this.el_container_id = param_obj.el_container_id ? param_obj.el_container_id : 'el_message_list';
-                        this.el_list_class = param_obj.el_list_class ? param_obj.el_list_class : 'w3-ul w3-border';
-                        this.el_item_class = param_obj.el_item_class ? param_obj.el_item_class : 'good-value';
-                        this.el_mouseover_class = param_obj.el_mouseover_class ? param_obj.el_mouseover_class : 'w3-large';
-                        this.el_item_text = param_obj.el_item_text ? param_obj.el_item_text : 'd3 es6 is good.';
-
-                        this._set_el_list();
-
-                        return this;
-                    }
-                }, {
-                    key: '_set_el_list_event',
-                    value: function _set_el_list_event() {
+                    key: '_set_event',
+                    value: function _set_event() {
                         var self = this;
 
-                        this.el_list.selectAll('li').on('mouseover', function () {
+                        this.list_obj.selectAll('li').on('mouseover', function () {
                             d3.select(this).classed(self.el_mouseover_class, true);
                         }).on('mouseout', function () {
                             d3.select(this).classed(self.el_mouseover_class, false);
                         });
                     }
                 }, {
-                    key: '_set_el_list',
-                    value: function _set_el_list() {
-                        var self = this;
+                    key: '_init_param',
+                    value: function _init_param() {
+                        var param_obj = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-                        if (!this.el_list) {
-                            var container_id = '#' + this.el_container_id;
-                            d3.select(container_id).selectAll('*').remove();
-
-                            this.el_list = d3.select(container_id).append('ul').attr('class', self.el_list_class);
-                        }
+                        this.el_container_id = param_obj.el_container_id ? param_obj.el_container_id : 'el_message_list';
+                        this.el_list_class = param_obj.el_list_class ? param_obj.el_list_class : 'w3-ul w3-border';
+                        this.el_mouseover_class = param_obj.el_mouseover_class ? param_obj.el_mouseover_class : 'w3-large';
+                        this.item_array = param_obj.item_array ? param_obj.item_array : [];
                     }
                 }]);
 
@@ -15816,35 +15801,26 @@ $__System.register('17', ['5', '6', '16'], function (_export) {
         }
     };
 });
-$__System.register('1', ['17'], function (_export) {
-  'use strict';
+$__System.register("1", ["17"], function (_export) {
+    "use strict";
 
-  var D3TextList, param_obj, text_list_obj;
-  return {
-    setters: [function (_) {
-      D3TextList = _.D3TextList;
-    }],
-    execute: function () {
-      param_obj = {};
+    var D3TextList, item_array, param_obj, text_list_obj;
+    return {
+        setters: [function (_) {
+            D3TextList = _.D3TextList;
+        }],
+        execute: function () {
+            item_array = [{ "label": "d3 es6 is good.", "item_class": "good-value" }, { "label": "d3 es6 is ok.", "item_class": "ok-value" }, { "label": "d3 es6 is not so good.", "item_class": "w3-red" }];
+            param_obj = {};
 
-      param_obj.el_container_id = 'el_message_list';
+            param_obj.el_container_id = 'el_message_list';
+            param_obj.item_array = item_array;
 
-      text_list_obj = new D3TextList();
+            text_list_obj = new D3TextList();
 
-      // default
-      text_list_obj.append_item();
-
-      //
-      param_obj.el_item_class = 'ok-value';
-      param_obj.el_item_text = 'd3 es6 is ok.';
-      text_list_obj.append_item(param_obj);
-
-      //
-      param_obj.el_item_class = 'w3-red';
-      param_obj.el_item_text = 'd3 es6 is not so good.';
-      text_list_obj.append_item(param_obj);
-    }
-  };
+            text_list_obj.show_list(param_obj);
+        }
+    };
 });
 })
 (function(factory) {
